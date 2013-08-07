@@ -3,6 +3,10 @@
 
 Check if mobile browser, based on useragent string.
 
+[![build status](https://secure.travis-ci.org/Wayla/is-mobile.png)](http://travis-ci.org/Wayla/is-mobile)
+
+[![testling badge](https://ci.testling.com/Wayla/is-mobile.png)](https://ci.testling.com/Wayla/is-mobile)
+
 ## Example
 
 ```js
