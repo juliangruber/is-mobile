@@ -12,9 +12,16 @@ Check if mobile browser, based on useragent string.
 ```js
 var mobile = require('is-mobile');
 
-console.log(mobile(navigator.userAgent));
+console.log(mobile());
 // => false
 ```
+
+## API
+
+### mobile([user-agent])
+
+Returns true if a mobile browser is being used. If you don't specify
+`user-agent` it will use `navigator.userAgent`.
 
 ## Installation
 
