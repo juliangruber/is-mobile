@@ -31,7 +31,7 @@ Taken from [detectmobilebrowsers.com](http://detectmobilebrowsers.com/).
 
 (MIT)
 
-Copyright (c) 2013 Julian Gruber &lt;julian@juliangruber.com&gt;
+Copyright (c) 2013 Julian Gruber &lt;julian@wayla.com&gt;
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of
 this software and associated documentation files (the "Software"), to deal in
