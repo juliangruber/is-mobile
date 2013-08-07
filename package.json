@@ -1,0 +1,30 @@
+{
+  "name": "is-mobile",
+  "description": "Check if mobile browser.",
+  "version": "0.0.0",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/juliangruber/is-mobile.git"
+  },
+  "homepage": "https://github.com/juliangruber/is-mobile",
+  "main": "index.js",
+  "scripts": {
+    "test": "tape test.js"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "tape": "~1.0.4"
+  },
+  "keywords": [
+    "mobile",
+    "desktop",
+    "check",
+    "browser"
+  ],
+  "author": {
+    "name": "Julian Gruber",
+    "email": "mail@juliangruber.com",
+    "url": "http://juliangruber.com"
+  },
+  "license": "MIT"
+}
