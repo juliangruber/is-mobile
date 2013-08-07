@@ -1,7 +1,7 @@
 {
   "name": "is-mobile",
   "description": "Check if mobile browser.",
-  "version": "0.0.2",
+  "version": "0.1.0",
   "repository": {
     "type": "git",
     "url": "git://github.com/Wayla/is-mobile.git"
