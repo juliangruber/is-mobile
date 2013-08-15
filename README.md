@@ -23,6 +23,23 @@ console.log(mobile());
 Returns true if a mobile browser is being used. If you don't specify
 `user-agent` it will use `navigator.userAgent`.
 
+### mobile(request)
+
+Returns true if the given [node.js http request](http://nodejs.org/api/http.html#http_http_incomingmessage) comes with a mobile user agent header.
+
+Example:
+
+```js
+var http = require('http');
+var mobile = require('is-mobile');
+
+var server = http.createServer(function (req, res) {
+  res.end(mobile(req));
+});
+
+server.listen(8000);
+```
+
 ## Installation
 
 With [npm](https://npmjs.org) do:
