@@ -3,9 +3,9 @@
 
 Check if mobile browser, based on useragent string.
 
-[![build status](https://secure.travis-ci.org/Wayla/is-mobile.png)](http://travis-ci.org/Wayla/is-mobile)
+[![build status](https://secure.travis-ci.org/juliangruber/is-mobile.png)](http://travis-ci.org/juliangruber/is-mobile)
 
-[![testling badge](https://ci.testling.com/Wayla/is-mobile.png)](https://ci.testling.com/Wayla/is-mobile)
+[![testling badge](https://ci.testling.com/juliangruber/is-mobile.png)](https://ci.testling.com/juliangruber/is-mobile)
 
 ## Example
 
@@ -59,7 +59,7 @@ Taken from [detectmobilebrowsers.com](http://detectmobilebrowsers.com/).
 
 (MIT)
 
-Copyright (c) 2013 Julian Gruber &lt;julian@wayla.com&gt;
+Copyright (c) 2013 Julian Gruber &lt;julian@juliangruber.com&gt;
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of
 this software and associated documentation files (the "Software"), to deal in
