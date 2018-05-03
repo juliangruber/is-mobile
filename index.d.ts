@@ -1,1 +1,1 @@
-// init index.d.ts
+export declare function isMobile(ua?: string): boolean;
