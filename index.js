@@ -1,4 +1,5 @@
 module.exports = isMobile;
+module.exports.isMobile = isMobile;
 
 function isMobile (ua) {
   if (!ua && typeof navigator != 'undefined') ua = navigator.userAgent;
