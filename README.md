@@ -3,9 +3,7 @@
 
 Check if mobile browser, based on useragent string.
 
-[![build status](https://secure.travis-ci.org/juliangruber/is-mobile.png)](http://travis-ci.org/juliangruber/is-mobile)
-
-[![testling badge](https://ci.testling.com/juliangruber/is-mobile.png)](https://ci.testling.com/juliangruber/is-mobile)
+[![Build Status](https://travis-ci.org/juliangruber/is-mobile.svg?branch=master)](https://travis-ci.org/juliangruber/is-mobile)
 
 ## Example
 
