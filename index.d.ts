@@ -1,0 +1,1 @@
+// init index.d.ts
