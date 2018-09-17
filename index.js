@@ -14,11 +14,9 @@ function isMobile (ua, opt) {
   if (ua && ua.headers && typeof ua.headers['user-agent'] == 'string') {
     ua = ua.headers['user-agent'];
   }
-
   if (ua && typeof ua != 'string' && !opt) {
     opt = ua;
   }
-
   if (typeof ua != 'string') return false;
 
   var isTablet = !!(opt && (opt.tablet || opt.tablets));
