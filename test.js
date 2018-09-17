@@ -9,7 +9,8 @@ var ipad = 'Mozilla/5.0 (iPad; CPU OS 9_3_2 like Mac OS X) AppleWebKit/601.1.46 
 test('is mobile', function (t) {
   t.ok(isMobile(iphone));
   t.ok(isMobile(ffos));
-  t.ok(isMobile(ipad));
+  t.notOk(isMobile(ipad));
+  t.ok(isMobile(ipad, {tablets: true}));
   t.ok(isMobile({ headers: { 'user-agent': iphone } }));
   t.notOk(isMobile(chrome));
   t.notOk(isMobile({ headers: { 'user-agent': chrome } }));
