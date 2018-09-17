@@ -19,7 +19,7 @@ console.log(mobile());
 ### mobile([user-agent], [options])
 
 Returns true if a mobile browser is being used. If you don't specify
-`user-agent` it will use `navigator.userAgent`. To detect tablets, pass `{ tablets: true }` as `options` argument.
+`user-agent` it will use `navigator.userAgent`. To detect tablet, pass `{ tablet: true }` as `options` argument.
 
 ### mobile(request, [options])
 

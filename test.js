@@ -10,7 +10,7 @@ test('is mobile', function (t) {
   t.ok(isMobile(iphone));
   t.ok(isMobile(ffos));
   t.notOk(isMobile(ipad));
-  t.ok(isMobile(ipad, {tablets: true}));
+  t.ok(isMobile(ipad, {tablet: true}));
   t.ok(isMobile({ headers: { 'user-agent': iphone } }));
   t.notOk(isMobile(chrome));
   t.notOk(isMobile({ headers: { 'user-agent': chrome } }));
