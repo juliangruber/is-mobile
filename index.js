@@ -19,8 +19,6 @@ function isMobile (ua, opt) {
     opt = ua;
   }
 
-  if (!ua && typeof navigator != 'undefined') ua = navigator.userAgent;
-
   if (typeof ua != 'string') return false;
 
   var isTablet = !!(opt && (opt.tablet || opt.tablets));
