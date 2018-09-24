@@ -20,3 +20,21 @@ test('is mobile', function (t) {
   t.end();
 });
 
+test('mock window.navigator', function (t) {
+  if (typeof document !== 'undefined') return t.end();
+
+  var origNavigator = global.navigator;
+
+  global.navigator = { userAgent: iphone };
+  t.ok(isMobile())
+
+  global.navigator = { userAgent: ipad };
+  t.notOk(isMobile())
+  t.notOk(isMobile({tablet: false}))
+  t.ok(isMobile({tablet: true}))
+
+  global.navigator = origNavigator;
+
+  t.end();
+})
+
