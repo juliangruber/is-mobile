@@ -8,11 +8,11 @@ var mobileRE = /(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|c
 var tabletRE = /(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elaine|fennec|hiptop|iemobile|ip(hone|od)|iris|kindle|lge |maemo|midp|mmp|mobile.+firefox|netfront|opera m(ob|in)i|palm( os)?|phone|p(ixi|re)\/|plucker|pocket|psp|series(4|6)0|symbian|treo|up\.(browser|link)|vodafone|wap|windows (ce|phone)|xda|xiino|android|ipad|playbook|silk/i;
 
 function isMobile (ua, opts) {
-  if (!opts && ua !== null && typeof ua === 'object') opts = ua;
-  if (!ua && typeof navigator !== 'undefined') ua = navigator.userAgent;
-  if (ua && ua.headers && typeof ua.headers['user-agent'] === 'string') {
-    ua = ua.headers['user-agent'];
+  if (ua && typeof ua === 'object') {
+    if (!opts) opts = ua;
+    ua = ua.headers && ua.headers['user-agent'];
   }
+  if (ua === undefined && typeof navigator !== 'undefined') ua = navigator.userAgent;
   if (typeof ua !== 'string') return false;
   if (!opts) opts = {};
 
