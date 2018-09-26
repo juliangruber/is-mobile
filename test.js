@@ -7,16 +7,15 @@ var ffos = 'Mozilla/5.0 (Mobile; rv:18.0) Gecko/18.0 Firefox/18.0';
 var ipad = 'Mozilla/5.0 (iPad; CPU OS 9_3_2 like Mac OS X) AppleWebKit/601.1.46 (KHTML, like Gecko) Version/9.0 Mobile/13F69 Safari/601.1'
 
 test('is mobile', function (t) {
-  t.ok(isMobile(iphone));
-  t.ok(isMobile(ffos));
-  t.notOk(isMobile(ipad));
-  t.ok(isMobile(ipad, {tablet: true}));
-  t.ok(isMobile({ headers: { 'user-agent': iphone } }));
-  t.notOk(isMobile(chrome));
-  t.notOk(isMobile({ headers: { 'user-agent': chrome } }));
-  t.notOk(isMobile(null));
-  t.notOk(isMobile({ headers: null }));
-  t.notOk(isMobile({ headers: { 'user-agent': null } }));
+  t.ok(isMobile({ ua: iphone }));
+  t.ok(isMobile({ ua: ffos }));
+  t.notOk(isMobile({ ua: ipad }));
+  t.ok(isMobile({ ua: ipad, tablet: true }));
+  t.ok(isMobile({ ua: { headers: { 'user-agent': iphone } } }));
+  t.notOk(isMobile({ ua: chrome }));
+  t.notOk(isMobile({ ua: { headers: { 'user-agent': chrome } } }));
+  t.notOk(isMobile());
+  t.notOk(isMobile({ ua: { headers: null } }));
+  t.notOk(isMobile({ ua: { headers: { 'user-agent': null } } }));
   t.end();
 });
-
