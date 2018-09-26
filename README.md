@@ -16,14 +16,16 @@ console.log(mobile());
 
 ## API
 
-### mobile([user-agent], [options])
+### mobile({ [ua], [tablet] })
 
-Returns true if a mobile browser is being used. If you don't specify
-`user-agent` it will use `navigator.userAgent`. To detect tablet, pass `{ tablet: true }` as `options` argument.
+Returns true if a mobile browser is being used.
 
-### mobile(request, [options])
+If you don't specify `opts.ua` it will use `navigator.userAgent`.
 
-Returns true if the given [node.js http request](http://nodejs.org/api/http.html#http_http_incomingmessage) comes with a mobile user agent header.
+To add support for tablets, set `tablet: true`.
+
+`opts.ua` can also be an instance of a [node.js http request](http://nodejs.org/api/http.html#http_http_incomingmessage), in which
+case it will reader the user agent header.
 
 Example:
 
