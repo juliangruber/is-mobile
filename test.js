@@ -17,5 +17,20 @@ test('is mobile', function (t) {
   t.notOk(isMobile());
   t.notOk(isMobile({ ua: { headers: null } }));
   t.notOk(isMobile({ ua: { headers: { 'user-agent': null } } }));
+
+  global.navigator = {};
+
+  global.navigator.userAgent = iphone;
+  t.ok(isMobile());
+  t.ok(isMobile({ tablet: true }));
+
+  global.navigator.userAgent = chrome;
+  t.notOk(isMobile());
+  t.notOk(isMobile({ tablet: true }));
+
+  global.navigator.userAgent = ipad;
+  t.notOk(isMobile());
+  t.ok(isMobile({ tablet: true }));
+
   t.end();
 });
