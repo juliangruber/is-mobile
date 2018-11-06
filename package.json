@@ -9,10 +9,11 @@
   "homepage": "https://github.com/juliangruber/is-mobile",
   "main": "index.js",
   "scripts": {
-    "test": "standard && tape test.js"
+    "test": "prettier-standard '**/*.js' && standard && tape test.js"
   },
   "dependencies": {},
   "devDependencies": {
+    "prettier-standard": "^8.0.1",
     "standard": "^12.0.1",
     "tape": "~1.0.4"
   },

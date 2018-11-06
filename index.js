@@ -16,7 +16,5 @@ function isMobile (opts) {
   }
   if (typeof ua !== 'string') return false
 
-  return opts.tablet
-    ? tabletRE.test(ua)
-    : mobileRE.test(ua)
+  return opts.tablet ? tabletRE.test(ua) : mobileRE.test(ua)
 }
