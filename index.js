@@ -11,7 +11,7 @@ var tabletRE = /(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|c
 function isMobile (opts) {
   if (!opts) opts = {}
   var ua = opts.ua
-  if (!ua && global.navigator) ua = global.navigator.userAgent
+  if (!ua && typeof navigator !== 'undefined') ua = navigator.userAgent
   if (ua && ua.headers && typeof ua.headers['user-agent'] === 'string') {
     ua = ua.headers['user-agent']
   }
