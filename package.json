@@ -8,6 +8,7 @@
   },
   "homepage": "https://github.com/juliangruber/is-mobile",
   "main": "index.js",
+  "types": "index.d.ts",
   "scripts": {
     "test": "prettier-standard '**/*.js' && standard && tape test.js"
   },
