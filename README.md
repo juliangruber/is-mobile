@@ -24,7 +24,7 @@ If you don't specify `opts.ua` it will use `navigator.userAgent`.
 
 To add support for tablets, set `tablet: true`.
 
-To add extra feature detection (i.e. namely for iPad with iOS 13), set `featureDetect: true` and `tablet: true`.
+To enable feature detection (i.e. namely for iPad with iOS 13), set `featureDetect: true` and `tablet: true`. This will only work in browser environments.
 
 `opts.ua` can also be an instance of a [node.js http request](http://nodejs.org/api/http.html#http_http_incomingmessage), in which
 case it will reader the user agent header.
