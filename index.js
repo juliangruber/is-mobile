@@ -19,11 +19,16 @@ function isMobile (opts) {
 
   var result = opts.tablet ? tabletRE.test(ua) : mobileRE.test(ua)
 
-  if (opts.featureDetect &&
-      navigator && navigator.maxTouchPoints > 1 &&
-      ua.indexOf('Macintosh') !== -1 &&
-      ua.indexOf('Safari') !== -1
-    ) result = true
+  if (
+    !result &&
+    opts.tablet &&
+    opts.featureDetect &&
+    navigator &&
+    navigator.maxTouchPoints > 1 &&
+    ua.indexOf('Macintosh') !== -1 &&
+    ua.indexOf('Safari') !== -1
+  ) {
+    result = true
   }
 
   return result

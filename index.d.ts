@@ -12,6 +12,7 @@ export interface IsMobileOptions
 {
     ua?: string | HttpRequestInterfaceMock
     tablet?: boolean
+    featureDetect?: boolean
 }
 
 export declare function isMobile(opts?:IsMobileOptions): boolean;
