@@ -17,15 +17,13 @@ function isMobile (opts) {
   }
   if (typeof ua !== 'string') return false
 
-  if (opts.tablet) {
-    var result = tabletRE.test(ua);
-    if (!result &&
+  var result = opts.tablet ? tabletRE.test(ua) : mobileRE.test(ua)
+
+  if (opts.featureDetect &&
       navigator && navigator.maxTouchPoints > 1 &&
       ua.indexOf('Macintosh') !== -1 &&
       ua.indexOf('Safari') !== -1
     ) result = true
-  } else {
-    result = mobileRE.test(ua)
   }
 
   return result
