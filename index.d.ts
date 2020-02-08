@@ -16,3 +16,4 @@ export interface IsMobileOptions
 }
 
 export declare function isMobile(opts?:IsMobileOptions): boolean;
+export default isMobile;
