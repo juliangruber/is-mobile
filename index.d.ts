@@ -1,5 +1,5 @@
 interface HttpRequestHeadersInterfaceMock {
-    [id: string]: string | string[]
+    [id: string]: string | string[] | undefined
 }
 
 interface HttpRequestInterfaceMock {
