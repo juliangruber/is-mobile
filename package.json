@@ -1,7 +1,7 @@
 {
   "name": "is-mobile",
   "description": "Check if mobile browser.",
-  "version": "2.2.1",
+  "version": "2.2.2",
   "repository": {
     "type": "git",
     "url": "git://github.com/juliangruber/is-mobile.git"
