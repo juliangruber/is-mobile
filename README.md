@@ -27,7 +27,7 @@ To add support for tablets, set `tablet: true`.
 To enable feature detection (i.e. namely for iPad with iOS 13), set `featureDetect: true` and `tablet: true`. This will only work in browser environments.
 
 `opts.ua` can also be an instance of a [node.js http request](http://nodejs.org/api/http.html#http_http_incomingmessage), in which
-case it will reader the user agent header.
+case it will read the user agent header.
 
 Example:
 
@@ -36,7 +36,7 @@ var http = require('http');
 var mobile = require('is-mobile');
 
 var server = http.createServer(function (req, res) {
-  res.end(mobile(req));
+  res.end(mobile({ ua: req }));
 });
 
 server.listen(8000);
