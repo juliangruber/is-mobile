@@ -57,6 +57,8 @@ Bundle for the browser with
 
 Taken from [detectmobilebrowsers.com](http://detectmobilebrowsers.com/).
 
+Armv7l support added by [@antongolub](https://github.com/antongolub).
+
 ## License
 
 (MIT)
