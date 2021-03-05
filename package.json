@@ -14,7 +14,6 @@
     "test": "prettier-standard '**/*.js' && standard && npm run test:unit",
     "test:unit": "tape test.js"
   },
-  "dependencies": {},
   "devDependencies": {
     "np": "^7.4.0",
     "prettier-standard": "^16.4.1",
