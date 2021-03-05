@@ -1,7 +1,7 @@
 const test = require('tape')
 const describe = require('tape-describe')
-const isMobile = require('./')
 const UserAgent = require('user-agents')
+const isMobile = require('./')
 
 const iphone =
   'Mozilla/5.0 (iPhone; CPU iPhone OS 5_0 like Mac OS X) AppleWebKit/534.46 (KHTML, like Gecko) Version/5.1 Mobile/9A334 Safari/7534.48.3'
@@ -55,16 +55,17 @@ describe('ua-bruteforce', function () {
     tablet: { result: true, tablet: true },
     desktop: { result: false }
   }
-  const testCases = Object.keys(checks).reduce((cases, deviceCategory) => {
-    cases.push(
+  const testCases = Object.entries(checks).reduce(
+    (cases, [deviceCategory, { result, tablet }]) => [
+      ...cases,
       ...new Array(limit).fill().map(() => ({
         ua: new UserAgent({ deviceCategory }).toString(),
-        ...checks[deviceCategory]
+        result,
+        tablet
       }))
-    )
-
-    return cases
-  }, [])
+    ],
+    []
+  )
 
   testCases.forEach(({ ua, result, tablet }) => {
     test(ua, t => {

@@ -21,7 +21,7 @@
     "standard": "^16.0.3",
     "tape": "~5.2.2",
     "tape-describe": "^1.0.3",
-    "user-agents": "^1.0.580"
+    "user-agents": "^1.0.581"
   },
   "keywords": [
     "mobile",
