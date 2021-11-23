@@ -49,41 +49,42 @@ test('is mobile', function (t) {
 })
 
 describe('ua-bruteforce', function () {
-  const limit = 300
-  const checks = {
-    mobile: { result: true },
-    tablet: { result: true, tablet: true },
-    desktop: { result: false }
-  }
-  // The same user-agent string belongs to both `desktop` and `mobile` type entries. No chance to detect `deviceType` properly.
-  // https://github.com/intoli/user-agents/blob/867e318bc00880ae00437e5e8efaa8e5e7ac0696/src/user-agents.json.gz
-  // user-agents v1.0.843
-  const exclude =
-    'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.198 Safari/537.36'
+  const ua = deviceCategory => {
+    if (!ua[deviceCategory]) {
+      // The same user-agent string belongs to both `desktop` and `mobile` type entries. No chance to detect `deviceType` properly.
+      // https://github.com/intoli/user-agents/blob/867e318bc00880ae00437e5e8efaa8e5e7ac0696/src/user-agents.json.gz
+      // user-agents v1.0.843
+      const exclude =
+        'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.198 Safari/537.36'
+      ua[deviceCategory] = new UserAgent([
+        ({ userAgent }) => userAgent !== exclude,
+        { deviceCategory }
+      ])
+    }
 
-  const ua = deviceCategory =>
-    ua[deviceCategory] ||
-    (ua[deviceCategory] = new UserAgent([
-      ({ userAgent }) => userAgent !== exclude,
-      { deviceCategory }
-    ]))
-  const testCases = Object.entries(checks).reduce(
-    (cases, [deviceCategory, { result, tablet }]) => [
+    return ua[deviceCategory].random().toString()
+  }
+  const limit = 300
+  const checks = [
+    ['mobile', true],
+    ['tablet', true, { tablet: true }],
+    ['desktop', false]
+  ]
+  const testCases = checks.reduce(
+    (cases, [deviceCategory, result, options]) => [
       ...cases,
       ...new Array(limit).fill().map(() => ({
-        ua: ua(deviceCategory)
-          .random()
-          .toString(),
+        ua: ua(deviceCategory),
         result,
-        tablet
+        options
       }))
     ],
     []
   )
 
-  testCases.forEach(({ ua, result, tablet }) => {
+  testCases.forEach(({ ua, result, options }) => {
     test(ua, t => {
-      t.equal(isMobile({ ua, tablet }), result)
+      t.equal(isMobile({ ua, ...options }), result)
       t.end()
     })
   })
