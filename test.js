@@ -50,19 +50,15 @@ test('is mobile', function (t) {
 
 describe('ua-bruteforce', function () {
   const ua = deviceCategory => {
-    if (!ua[deviceCategory]) {
-      // The same user-agent string belongs to both `desktop` and `mobile` type entries. No chance to detect `deviceType` properly.
-      // https://github.com/intoli/user-agents/blob/867e318bc00880ae00437e5e8efaa8e5e7ac0696/src/user-agents.json.gz
-      // user-agents v1.0.843
-      const exclude =
-        'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.198 Safari/537.36'
-      ua[deviceCategory] = new UserAgent([
-        ({ userAgent }) => userAgent !== exclude,
-        { deviceCategory }
-      ])
-    }
-
-    return ua[deviceCategory].random().toString()
+    // The same user-agent string belongs to both `desktop` and `mobile` type entries. No chance to detect `deviceType` properly.
+    // https://github.com/intoli/user-agents/blob/867e318bc00880ae00437e5e8efaa8e5e7ac0696/src/user-agents.json.gz
+    // user-agents v1.0.843
+    const exclude =
+      'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.198 Safari/537.36'
+    return new UserAgent([
+      ({ userAgent }) => userAgent !== exclude,
+      { deviceCategory }
+    ]).toString()
   }
   const limit = 300
   const checks = [
