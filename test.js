@@ -51,12 +51,12 @@ test('is mobile', function (t) {
 describe('ua-bruteforce', function () {
   const limit = 300
   const checks = [
-    ['mobile', true],
-    ['tablet', true, { tablet: true }],
-    ['desktop', false]
+    { deviceCategory: 'mobile', result: true },
+    { deviceCategory: 'tablet', result: true, tablet: true },
+    { deviceCategory: 'desktop', result: false }
   ]
   const testCases = checks.reduce(
-    (cases, [deviceCategory, result, options]) => {
+    (cases, { deviceCategory, result, tablet }) => {
       // The same user-agent string belongs to both `desktop` and `mobile` type entries. No chance to detect `deviceType` properly.
       // https://github.com/intoli/user-agents/blob/867e318bc00880ae00437e5e8efaa8e5e7ac0696/src/user-agents.json.gz
       // user-agents v1.0.843
@@ -72,16 +72,16 @@ describe('ua-bruteforce', function () {
         ...new Array(limit).fill().map(() => ({
           ua: ua.random().toString(),
           result,
-          options
+          tablet
         }))
       ]
     },
     []
   )
 
-  testCases.forEach(({ ua, result, options }) => {
+  testCases.forEach(({ ua, result, tablet }) => {
     test(ua, t => {
-      t.equal(isMobile({ ua, ...options }), result)
+      t.equal(isMobile({ ua, tablet }), result)
       t.end()
     })
   })
