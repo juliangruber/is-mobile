@@ -18,6 +18,8 @@ const ios13ipadpro =
   'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Safari/605.1.15'
 const samsung =
   'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) SamsungBrowser/16.0 Chrome/92.0.4515.166 Safari/537.36'
+const samsungMobile =
+  'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) SamsungBrowser/16.0 Chrome/92.0.4515.166 Mobile Safari/537.36'
 const chromeOS =
   'Mozilla/5.0 (X11; CrOS armv7l 12105.100.0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.144 Safari/537.36'
 
@@ -32,7 +34,8 @@ test('is mobile', function () {
   assert(!isMobile())
   assert(!isMobile({ ua: { headers: null } }))
   assert(!isMobile({ ua: { headers: { 'user-agent': null } } }))
-  assert(isMobile({ ua: samsung }))
+  assert(!isMobile({ ua: samsung }))
+  assert(isMobile({ ua: samsungMobile }))
   assert(!isMobile(chromeOS))
   assert(!isMobile(chromeOS, { tablet: true }))
 
