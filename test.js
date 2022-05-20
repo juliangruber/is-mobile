@@ -1,5 +1,7 @@
-const test = require('tape')
-const describe = require('tape-describe')
+'use strict'
+
+const assert = require('assert')
+const test = require('node-core-test')
 const UserAgent = require('user-agents')
 const isMobile = require('./')
 
@@ -19,43 +21,41 @@ const samsung =
 const chromeOS =
   'Mozilla/5.0 (X11; CrOS armv7l 12105.100.0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.144 Safari/537.36'
 
-test('is mobile', function (t) {
-  t.ok(isMobile({ ua: iphone }))
-  t.ok(isMobile({ ua: ffos }))
-  t.notOk(isMobile({ ua: ipad }))
-  t.ok(isMobile({ ua: ipad, tablet: true }))
-  t.ok(isMobile({ ua: { headers: { 'user-agent': iphone } } }))
-  t.notOk(isMobile({ ua: chrome }))
-  t.notOk(isMobile({ ua: { headers: { 'user-agent': chrome } } }))
-  t.notOk(isMobile())
-  t.notOk(isMobile({ ua: { headers: null } }))
-  t.notOk(isMobile({ ua: { headers: { 'user-agent': null } } }))
-  t.ok(isMobile({ ua: samsung }))
-  t.notOk(isMobile(chromeOS))
-  t.notOk(isMobile(chromeOS, { tablet: true }))
+test('is mobile', function () {
+  assert(isMobile({ ua: iphone }))
+  assert(isMobile({ ua: ffos }))
+  assert(!isMobile({ ua: ipad }))
+  assert(isMobile({ ua: ipad, tablet: true }))
+  assert(isMobile({ ua: { headers: { 'user-agent': iphone } } }))
+  assert(!isMobile({ ua: chrome }))
+  assert(!isMobile({ ua: { headers: { 'user-agent': chrome } } }))
+  assert(!isMobile())
+  assert(!isMobile({ ua: { headers: null } }))
+  assert(!isMobile({ ua: { headers: { 'user-agent': null } } }))
+  assert(isMobile({ ua: samsung }))
+  assert(!isMobile(chromeOS))
+  assert(!isMobile(chromeOS, { tablet: true }))
 
   global.navigator = {}
 
   global.navigator.userAgent = iphone
-  t.ok(isMobile())
-  t.ok(isMobile({ tablet: true }))
+  assert(isMobile())
+  assert(isMobile({ tablet: true }))
 
   global.navigator.userAgent = chrome
-  t.notOk(isMobile())
-  t.notOk(isMobile({ tablet: true }))
+  assert(!isMobile())
+  assert(!isMobile({ tablet: true }))
 
   global.navigator.userAgent = ipad
-  t.notOk(isMobile())
-  t.ok(isMobile({ tablet: true }))
+  assert(!isMobile())
+  assert(isMobile({ tablet: true }))
 
   global.navigator = { maxTouchPoints: 5 }
-  t.ok(isMobile({ ua: ios13ipad, tablet: true, featureDetect: true }))
-  t.ok(isMobile({ ua: ios13ipadpro, tablet: true, featureDetect: true }))
-
-  t.end()
+  assert(isMobile({ ua: ios13ipad, tablet: true, featureDetect: true }))
+  assert(isMobile({ ua: ios13ipadpro, tablet: true, featureDetect: true }))
 })
 
-describe('ua-bruteforce', function () {
+test('ua-bruteforce', function () {
   const limit = 300
   const checks = [
     { deviceCategory: 'mobile', result: true },
@@ -87,9 +87,8 @@ describe('ua-bruteforce', function () {
   )
 
   testCases.forEach(({ ua, result, tablet }) => {
-    test(ua, t => {
-      t.equal(isMobile({ ua, tablet }), result)
-      t.end()
+    test(ua, () => {
+      assert.strictEqual(isMobile({ ua, tablet }), result)
     })
   })
 })
