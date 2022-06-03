@@ -1,7 +1,7 @@
 'use strict'
 
 const assert = require('assert')
-const test = require('node-core-test')
+const test = require('test')
 const UserAgent = require('user-agents')
 const isMobile = require('./')
 

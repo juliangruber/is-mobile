@@ -18,6 +18,7 @@
     "np": "^7.6.0",
     "prettier-standard": "^16.4.1",
     "standard": "^16.0.4",
+    "test": "^3.0.0",
     "user-agents": "^1.0.845"
   },
   "keywords": [
@@ -31,8 +32,5 @@
     "email": "julian@juliangruber.com",
     "url": "http://juliangruber.com"
   },
-  "license": "MIT",
-  "dependencies": {
-    "node-core-test": "^2.0.0"
-  }
+  "license": "MIT"
 }
