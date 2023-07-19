@@ -15,7 +15,7 @@
     "test:unit": "node--test"
   },
   "devDependencies": {
-    "np": "^7.6.0",
+    "np": "^8.0.4",
     "prettier-standard": "^16.4.1",
     "standard": "^16.0.4",
     "test": "^3.0.0",
