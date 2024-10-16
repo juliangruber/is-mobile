@@ -22,6 +22,8 @@ const samsungMobile =
   'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) SamsungBrowser/16.0 Chrome/92.0.4515.166 Mobile Safari/537.36'
 const chromeOS =
   'Mozilla/5.0 (X11; CrOS armv7l 12105.100.0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.144 Safari/537.36'
+const redmiMobile =
+  'HashKey/1.20.0 (Redmi K30; Android ) Language/zh Theme/light ScreenWidth/392 ScreenHeight/856'
 
 test('is mobile', function () {
   assert(isMobile({ ua: iphone }))
@@ -36,6 +38,7 @@ test('is mobile', function () {
   assert(!isMobile({ ua: { headers: { 'user-agent': null } } }))
   assert(!isMobile({ ua: samsung }))
   assert(isMobile({ ua: samsungMobile }))
+  assert(isMobile({ ua: redmiMobile }))
   assert(!isMobile(chromeOS))
   assert(!isMobile(chromeOS, { tablet: true }))
 
