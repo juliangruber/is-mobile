@@ -8,12 +8,19 @@ interface HttpRequestInterfaceMock {
     [id: string]: any,
 }
 
-export interface IsMobileOptions
-{
-    ua?: string | HttpRequestInterfaceMock
-    tablet?: boolean
-    featureDetect?: boolean
+declare function isMobile(opts?: isMobile.IsMobileOptions): boolean;
+
+declare namespace isMobile{
+    export interface IsMobileOptions {
+        ua?: string | HttpRequestInterfaceMock
+        tablet?: boolean
+        featureDetect?: boolean
+    }
+
+    export {
+        isMobile,
+        isMobile as default
+    }
 }
 
-export declare function isMobile(opts?:IsMobileOptions): boolean;
-export default isMobile;
+export = isMobile
